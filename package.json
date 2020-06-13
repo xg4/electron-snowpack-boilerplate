@@ -21,15 +21,18 @@
   },
   "license": "MIT",
   "author": "xg4 <xingor4@gmail.com>",
-  "main": "index.js",
+  "main": "electron/mod.js",
   "scripts": {
     "build": "snowpack build",
+    "build:dist": "npm run build && electron-builder",
+    "build:pack": "npm run build && electron-builder --dir",
     "format": "prettier --write src/**/*",
     "lint": "eslint --fix src/**/*",
-    "start": "snowpack dev",
+    "start": "concurrently \"snowpack dev\" \"electron .\"",
     "test": "jest"
   },
   "dependencies": {
+    "electron-is-dev": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -40,6 +43,9 @@
     "@testing-library/react": "^10.2.1",
     "@types/react": "^16.9.36",
     "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
+    "electron": "^9.0.4",
+    "electron-builder": "^22.7.0",
     "jest": "^26.0.1",
     "postcss-cli": "^7.1.1",
     "postcss-flexbugs-fixes": "^4.2.1",
@@ -48,5 +54,13 @@
     "snowpack": "^2.5.1",
     "tailwindcss": "^1.4.6",
     "typescript": "^3.9.5"
+  },
+  "build": {
+    "productName": "ElectronSnowpack",
+    "asar": true,
+    "files": [
+      "electron",
+      "build"
+    ]
   }
 }
