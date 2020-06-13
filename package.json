@@ -1,0 +1,52 @@
+{
+  "name": "electron-snowpack-boilerplate",
+  "version": "0.0.0",
+  "description": "electron snowpack boilerplate",
+  "keywords": [
+    "electron",
+    "snowpack",
+    "boilerplate",
+    "react",
+    "postcss",
+    "tailwind",
+    "typescript"
+  ],
+  "homepage": ".",
+  "bugs": {
+    "url": "https://github.com/xg4/electron-snowpack-boilerplate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xg4/electron-snowpack-boilerplate.git"
+  },
+  "license": "MIT",
+  "author": "xg4 <xingor4@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "snowpack build",
+    "format": "prettier --write src/**/*",
+    "lint": "eslint --fix src/**/*",
+    "start": "snowpack dev",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@snowpack/app-scripts-react": "^1.2.0",
+    "@snowpack/plugin-webpack": "^1.2.0",
+    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/react": "^10.2.1",
+    "@types/react": "^16.9.36",
+    "@types/react-dom": "^16.9.8",
+    "jest": "^26.0.1",
+    "postcss-cli": "^7.1.1",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "snowpack": "^2.5.1",
+    "tailwindcss": "^1.4.6",
+    "typescript": "^3.9.5"
+  }
+}
