@@ -1,6 +1,6 @@
 {
   "name": "electron-snowpack-boilerplate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "electron snowpack boilerplate",
   "keywords": [
     "electron",
@@ -11,7 +11,7 @@
     "tailwind",
     "typescript"
   ],
-  "homepage": ".",
+  "homepage": "https://github.com/xg4/electron-snowpack-boilerplate#readme",
   "bugs": {
     "url": "https://github.com/xg4/electron-snowpack-boilerplate/issues"
   },
@@ -21,46 +21,50 @@
   },
   "license": "MIT",
   "author": "xg4 <xingor4@gmail.com>",
-  "main": "electron/mod.js",
+  "main": "electron/main.js",
   "scripts": {
+    "start": "snowpack dev",
     "build": "snowpack build",
-    "build:dist": "npm run build && electron-builder",
-    "build:pack": "npm run build && electron-builder --dir",
-    "format": "prettier --write src/**/*",
-    "lint": "eslint --fix src/**/*",
-    "start": "concurrently \"snowpack dev\" \"electron .\"",
-    "test": "jest"
+    "test": "web-test-runner \"src/**/*.test.tsx\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "dist": "npm run build && electron-builder",
+    "pack": "npm run build && electron-builder --dir"
   },
   "dependencies": {
-    "electron-is-dev": "^1.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "electron-is-dev": "^2.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-react": "^1.4.0",
-    "@snowpack/plugin-webpack": "^1.4.0",
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.3",
-    "@types/react": "^16.9.41",
-    "@types/react-dom": "^16.9.8",
-    "concurrently": "^5.2.0",
-    "electron": "^9.0.5",
-    "electron-builder": "^22.7.0",
-    "jest": "^26.1.0",
-    "postcss-cli": "^7.1.1",
-    "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-preset-env": "^6.7.0",
+    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-react-refresh": "^2.4.0",
+    "@snowpack/plugin-typescript": "^1.2.0",
+    "@snowpack/plugin-webpack": "^2.3.0",
+    "@snowpack/web-test-runner-plugin": "^0.2.0",
+    "@testing-library/react": "^11.0.0",
+    "@types/chai": "^4.2.13",
+    "@types/mocha": "^8.2.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/snowpack-env": "^2.3.2",
+    "@web/test-runner": "^0.12.0",
+    "chai": "^4.2.0",
+    "electron": "^12.0.0",
+    "electron-builder": "^22.10.5",
     "prettier": "^2.0.5",
-    "snowpack": "^2.6.3",
-    "tailwindcss": "^1.4.6",
-    "typescript": "^3.9.5"
+    "snowpack": "^3.0.1",
+    "typescript": "^4.0.0"
   },
   "build": {
-    "productName": "ElectronSnowpack",
+    "productName": "Electron-React",
     "asar": true,
     "files": [
       "electron",
       "build"
-    ]
+    ],
+    "linux": {
+      "icon": "./build/dist/logo.svg"
+    }
   }
 }

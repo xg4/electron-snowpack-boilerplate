@@ -104,6 +104,6 @@ dist
 .tern-port
 
 .vscode
-.build
+
+.snowpack
 build
-web_modules
